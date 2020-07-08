@@ -362,12 +362,15 @@ the output:
     2018-12-20,08:32:43 Raw incoming message: {"event":"push","data":{"type":"token","platform":"ios","token":"cVuLzCBsEn4:APA91bHYuO3hVJqTIMsm0IRNQEYAUa<deleted>GYBwNdwRfKyZV0","monlist":"1,2,4,5,6,7,11","intlist":"45,60,0,0,0,45,45","state":"enabled"}}
 
 If you don't see these logs on the event server, zmNinja is not able to
-connect to the event server. This may be because of several reasons: a)
-Your event server IP/DNS is not reachable from your phone b) If you are
-using SSL, your certificates are invalid (try disabling SSL first - both
-on the event server and on zmNinja) c) Your zmNinja configuration is
-wrong (the most common error I see is the server has SSL disabled, but
-zmNinja is configured to use ``wss://`` instead of ``ws://``)
+connect to the event server. This may be because of several reasons: 
+
+* Your event server IP/DNS is not reachable from your phone 
+
+* If you are using SSL, your certificates are invalid (try disabling SSL first - both 
+  on the event server and on zmNinja)
+
+* Your zmNinja configuration is wrong (the most common error I see is the server has 
+  SSL disabled, but  zmNinja is configured to use ``wss://`` instead of ``ws://``)
 
 7. Assuming the above worked, go to zmNinja logs in the app. Somewhere
    in the logs, you should see a line similar to:
@@ -473,7 +476,8 @@ As it turns out many folks run ZM inside the LAN only and don't want to
 deal with certificates. Fair enough. For that situation, edit
 zmeventnotification.pl and use ``enable = 0`` in the ``[ssl]`` section
 of the configuration file. **Remember to ensure that your EventServer
-URL in zmNinja does NOT use wss too - change it to ws**
+URL in zmNinja does NOT use wss too - change it to ws**. Also remember to
+restart the ES after this change.
 
 
 .. _es-hooks-logging:
